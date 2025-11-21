@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: recipe-config
+data:
+  SERVER_PORT: "8080"
+  SPRING_APPLICATION_NAME: "recipe-app"

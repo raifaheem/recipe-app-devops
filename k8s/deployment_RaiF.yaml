@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recipe-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: recipe
+  template:
+    metadata:
+      labels:
+        app: recipe
+    spec:
+      containers:
+        - name: recipe-app
+          image: raifaheem/todo-app:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: recipe-config
+            - secretRef:
+                name: recipe-secret
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
