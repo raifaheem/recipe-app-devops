@@ -1,4 +1,4 @@
-- hosts: devops-server
+- hosts: devops_server
   become: yes
   vars:
     k8s_src_dir: "./k8s"
